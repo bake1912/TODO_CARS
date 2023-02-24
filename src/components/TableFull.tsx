@@ -35,27 +35,26 @@ export const TableFull = () => {
     setIsModalOpen(false);
   };
   useEffect(()=>{
-    setUser({
-      key:myuuid,
-      name: user.name,
-      age: user.age,
-      adress: user.adress,
-      cars: user.cars,
-    })
-  },[isModalOpen])
-  let ourUser = isModalAddChecked
-    ? {
+    if(isModalAddChecked){
+      setUser({
+        key:myuuid,
         name: user.name,
         age: user.age,
         adress: user.adress,
         cars: user.cars,
-      }
-    : {
+      })
+
+    }
+    else{
+      setUser({
         name: editingUser?.name,
         age: editingUser?.age,
         adress: editingUser?.adress,
         cars: user.cars,
-      };
+      })
+    }
+  },[isModalOpen])
+  
   /*const fetchData = async () => {
     await axios
       .get("https://63c5366ef3a73b34785099c0.mockapi.io/api/todoList/users")
@@ -91,7 +90,7 @@ export const TableFull = () => {
       <ModalContent
         handleFormChange={handleFormChange}
         userSet={newUserAtributes}
-        ourUser={ourUser}
+        ourUser={user}
         editUser={editUser}
         addUser={addUser}
         isModalAddChecked={isModalAddChecked}
