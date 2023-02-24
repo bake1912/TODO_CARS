@@ -67,5 +67,5 @@ export interface IDataColumns {
   name: string;
   age: string;
   adress: string;
-  cars: any;
+  cars: string[];
 }
