@@ -9,25 +9,22 @@ export const ModalContent = ({
   addUser,
   isModalAddChecked,
   isModalOpen,
-  ourUser,
+  valuesEdit,
   editUser,
   modalClose,
+  handleCarChange,
 }: ModalProps) => {
-  const [fieldsAdd, setFieldsAdd] = useState(0);
-  const { addFields, handleFormChange, user, editingUser } =
-    useUserOperatings();
+  const { addFields, user, editingUser, removeFields } = useUserOperatings();
   const [validationSchema, setValidationSchema] = useState({});
 
   useEffect(() => {
-    if (isModalAddChecked || isModalAddChecked == false) {
-      setValidationSchema(
-        Yup.object({
-          name: Yup.string().required(),
-          age: Yup.number().required(),
-          adress: Yup.string().required(),
-        })
-      );
-    }
+    setValidationSchema(
+      Yup.object({
+        name: Yup.string().required(),
+        age: Yup.number().required(),
+        adress: Yup.string().required(),
+      })
+    );
   }, [isModalAddChecked]);
 
   const onSubmit = () => {
@@ -47,6 +44,23 @@ export const ModalContent = ({
     onSubmit,
     validationSchema,
   });
+  const defaultValuesEdit = () => {
+    formik.values.name = "name";
+    formik.values.age = "0";
+    formik.values.adress = "adress";
+  };
+
+  const defaultValuesAdd = () => {
+    formik.values.name = "";
+    formik.values.age = "";
+    formik.values.adress = "";
+    user.cars = [];
+  };
+  useEffect(() => {
+    if (isModalAddChecked) defaultValuesAdd();
+    else defaultValuesEdit();
+  }, [isModalOpen]);
+
   return (
     <>
       <Modal
@@ -65,7 +79,7 @@ export const ModalContent = ({
               <Input
                 className="main-input"
                 placeholder="name"
-                value={isModalAddChecked ? formik.values.name : ourUser.name}
+                value={isModalAddChecked ? formik.values.name : valuesEdit.name}
                 onBlur={formik.handleBlur}
                 onChange={
                   isModalAddChecked
@@ -89,7 +103,7 @@ export const ModalContent = ({
                 className="main-input"
                 placeholder="age"
                 onBlur={formik.handleBlur}
-                value={isModalAddChecked ? formik.values.age : ourUser.age}
+                value={isModalAddChecked ? formik.values.age : valuesEdit.age}
                 onChange={
                   isModalAddChecked
                     ? (e: ChangeEvent) => {
@@ -112,7 +126,7 @@ export const ModalContent = ({
                 placeholder="adress"
                 onBlur={formik.handleBlur}
                 value={
-                  isModalAddChecked ? formik.values.adress : ourUser.adress
+                  isModalAddChecked ? formik.values.adress : valuesEdit.adress
                 }
                 onChange={
                   isModalAddChecked
@@ -135,40 +149,37 @@ export const ModalContent = ({
             <div style={{ display: "block" }}>
               {user.cars.map((input, index) => {
                 return (
-                  <div style={{ margin: "10px 10px" }} key={index}>
+                  <div
+                    style={{ margin: "10px 10px", display: "flex" }}
+                    key={index}
+                  >
                     <Input
-                      value={input.brand}
+                      value={input.brand[index]}
                       name="brand"
                       onChange={(event) => {
-                        handleFormChange(index, event);
+                        handleCarChange(index, event);
                       }}
                       placeholder="brand"
                     />
+                    <Button
+                      onClick={() => {
+                        removeFields(index);
+                      }}
+                      style={{ marginLeft: "20px" }}
+                    >
+                      Remove
+                    </Button>
                   </div>
                 );
               })}
             </div>
           </div>
           <Button onClick={addFields}>Add more</Button>
-          <Button
-            onClick={() => {
-              console.log("submit", user);
-            }}
-            className="but"
-            type="primary"
-            htmlType="submit"
-          >
+
+          <Button className="but" type="primary" htmlType="submit">
             Submit
           </Button>
         </form>
-        <button
-          onClick={(e: any) => {
-            e.preventDefault();
-            console.log(user.cars);
-          }}
-        >
-          submit
-        </button>
       </Modal>
     </>
   );

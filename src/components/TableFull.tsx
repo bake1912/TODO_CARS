@@ -11,21 +11,23 @@ export const TableFull = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { array, setArray } = useArray();
   const {
+    myuuid,
     isModalAddChecked,
     setEditingUser,
     user,
     setUser,
     editingUser,
-    ourUser,
     setisModalAddChecked,
     newUserAtributes,
-    brands,dataColumns
+    valuesEdit,
+    dataColumns,
+    handleCarChange,
+     setCarsDefault,
   } = useUserOperatings();
-
-
 
   const addUser = () => {
     setArray([...array, dataColumns]);
+    setCarsDefault();
   };
   const editUser = () => {
     EditUserCheck(setArray, editingUser);
@@ -34,14 +36,6 @@ export const TableFull = () => {
     setIsModalOpen(false);
   };
 
-  const takeValues = () => {
-    if (isModalAddChecked) {
-      
-      addUser();
-    } else {
-      editUser();
-    }
-  };
   /*const fetchData = async () => {
     await axios
       .get("https://63c5366ef3a73b34785099c0.mockapi.io/api/todoList/users")
@@ -75,9 +69,9 @@ export const TableFull = () => {
         Add
       </Button>
       <ModalContent
-        takeValues={takeValues}
+        handleCarChange={handleCarChange}
         userSet={newUserAtributes}
-        ourUser={ourUser}
+        valuesEdit={valuesEdit}
         editUser={editUser}
         addUser={addUser}
         isModalAddChecked={isModalAddChecked}

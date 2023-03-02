@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IArray, IDataColumns } from "../interfaces/Iprops";
 
 import { v4 as uuidv4 } from "uuid";
 import { useUserOperatings } from "./useUserOperatings";
-const myuuid = Math.trunc(Math.random() * 100);
+
 
 export function useArray() {
-  const { user } = useUserOperatings();
+  const { myuuid } = useUserOperatings();
   const [array, setArray] = useState<IArray[]>([
     {
       key: myuuid,
@@ -16,6 +16,7 @@ export function useArray() {
       cars: ["BMW", "AUDI"].map((items) => items + " "),
     },
   ]);
+
 
   return {
     setArray,

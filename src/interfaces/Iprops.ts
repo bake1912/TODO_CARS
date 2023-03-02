@@ -5,20 +5,20 @@ export interface DataType {
   adress: string;
   cars: ICars[];
 }
-import { ChangeEvent } from "react";
 export interface ModalProps {
   userSet: (param: string, e: any) => void;
   addUser: () => void;
   isModalAddChecked: boolean;
   isModalOpen: boolean;
   modalClose: () => void;
-  ourUser: {
+  valuesEdit: {
     name: string;
     age: string;
     adress: string;
+    cars:ICars[];
   };
   editUser: () => void;
-  takeValues: (name: string, age: string, adress: string) => void;
+  handleCarChange:(index:number,event:any)=>void
 }
 export interface ModalObjectProp {
   userSet: (param: string, e: any) => void;
@@ -26,7 +26,7 @@ export interface ModalObjectProp {
   isChecked: boolean;
   isModalOpen: boolean;
   modalClose: () => void;
-  ourUser: {
+  valuesEdit: {
     name: string;
     age: string;
     adress: string;
@@ -50,23 +50,23 @@ export interface TableContentProps {
 }
 
 export interface IUser {
-  key: number;
+  key?: string;
   name: string;
   adress: string;
   age: string;
   cars: ICars[];
 }
 export interface IArray {
-  key: number;
+  key: string;
   name: string;
   age: string;
   adress: string;
   cars: string[];
 }
 export interface IDataColumns {
-  key: number;
+  key: string;
   name: string;
   age: string;
   adress: string;
-  cars: any;
+  cars: string[];
 }

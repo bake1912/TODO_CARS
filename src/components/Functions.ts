@@ -23,25 +23,7 @@ export const useDeleteUser = (record: any, setArray: (e: any) => void) => {
   });
 };
 
-export const useMyHook = (a:string) =>{
 
-const myFunction = () =>{
-
-}
-
-return (
-  myFunction
-)
-}
-/*
-imop {hook} from "dkfndskfjn"
-connst App =() =>{
-
-  
-}
-const {myFunction} = useMyHook("dsfsdf")
-myFunction(fdsfjldksjfsdkjf)
-*/
 
 
   

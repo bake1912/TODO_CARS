@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import { array } from "yup";
 import { ICars, IDataColumns, IUser } from "../interfaces/Iprops";
 import { useArray } from "./useArray";
-
+import { v4 as uuidv4 } from "uuid";
 export const useUserOperatings = () => {
   let newUserAtributes = (param: string, e: any) => {};
   const [user, setUser] = useState<IUser>({
-    key: 0,
+    key: "",
     name: "",
     adress: "",
     age: "",
@@ -14,18 +15,19 @@ export const useUserOperatings = () => {
 
   const addFields = () => {
     const newfield = { brand: "" };
-
     setUser({ ...user, cars: [...user.cars, newfield] });
   };
-  const handleFormChange = (
-    index: number,
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleCarChange = (index: number, event: any) => {
     const newCars = [...user.cars];
     newCars[index] = { brand: event.target.value };
     setUser({ ...user, cars: newCars });
   };
   const brands = user.cars.map((car) => car.brand);
+  const removeFields = (index: number) => {
+    const data = [...user.cars];
+    data.splice(index, 1);
+    setUser({ ...user, cars: data });
+  };
 
   const [isModalAddChecked, setisModalAddChecked] = useState(false);
   const [editingUser, setEditingUser] = useState<any>();
@@ -68,32 +70,25 @@ export const useUserOperatings = () => {
       }
     }
   };
-  const myuuid = Math.trunc(Math.random() * 1000);
+  const myuuid = uuidv4();
 
   const dataColumns: IDataColumns = {
     key: myuuid,
     name: user.name,
     age: user.age,
     adress: user.adress,
-    cars: brands,
+    cars: user.cars.map((car) => car.brand + " "),
   };
-useEffect(()=>{
-  console.log(dataColumns)
-})
-  let ourUser = isModalAddChecked
-    ? {
-        name: user.name,
-        age: user.age,
-        adress: user.adress,
-        cars: user.cars,
-      }
-    : {
-        name: editingUser?.name,
-        age: editingUser?.age,
-        adress: editingUser?.adress,
-        cars: user.cars,
-      };
 
+  let valuesEdit = {
+    name: editingUser?.name,
+    age: editingUser?.age,
+    adress: editingUser?.adress,
+    cars: user.cars,
+  };
+  const setCarsDefault = () => {
+    setUser({ ...user, cars: [{ brand: "" }] });
+  };
   return {
     isModalAddChecked,
     setEditingUser,
@@ -101,11 +96,14 @@ useEffect(()=>{
     editingUser,
     setisModalAddChecked,
     newUserAtributes,
-    ourUser,
+    myuuid,
     setUser,
     addFields,
-    handleFormChange,
+    handleCarChange,
     brands,
+    valuesEdit,
     dataColumns,
+    removeFields,
+    setCarsDefault,
   };
 };
