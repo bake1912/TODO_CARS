@@ -5,12 +5,33 @@ export interface DataType {
   adress: string;
   cars: ICars[];
 }
+
+export interface IValuesEdit {
+  name: string;
+  age: string;
+  adress: string;
+  education: string;
+  telephone: number;
+  isDriver: string;
+  childrenCount: number;
+  hobby: string;
+  email: string;
+  typeTransport: string;
+  ills: string;
+  internetProvider: string;
+  job: string;
+}
+
+
 export interface ModalProps {
   userSet: (param: string, e: any) => void;
   addUser: () => void;
   isModalAddChecked: boolean;
   isModalOpen: boolean;
   modalClose: () => void;
+  valuesEdit: IValuesEdit;
+  editUser: () => void;
+  handleCarChange: (index: number, event: any) => void;
   valuesEdit: {
     name: string;
     age: string;
@@ -31,6 +52,16 @@ export interface ModalObjectProp {
     age: string;
     adress: string;
     cars: ICars[];
+    education: string;
+    telephone: number;
+    isDriver: string;
+    childrenCount: number;
+    hobby: string;
+    email: string;
+    typeTransport: string;
+    ills: string;
+    internetProvider: string;
+    job: string;
   };
   editUser: () => void;
 }
@@ -50,10 +81,20 @@ export interface TableContentProps {
 }
 
 export interface IUser {
-  key?: string;
+  key: string;
   name: string;
   adress: string;
   age: string;
+  education: string;
+  telephone: number;
+  isDriver: string;
+  childrenCount: number;
+  hobby: string;
+  email: string;
+  typeTransport: string;
+  ills: string;
+  internetProvider: string;
+  job: string;
   cars: ICars[];
 }
 export interface IArray {
@@ -62,6 +103,16 @@ export interface IArray {
   age: string;
   adress: string;
   cars: string[];
+  education: string;
+  telephone: number;
+  isDriver: string;
+  childrenCount: number;
+  hobby: string;
+  email: string;
+  typeTransport: string;
+  ills: string;
+  internetProvider: string;
+  job: string;
 }
 export interface IDataColumns {
   key: string;
@@ -69,4 +120,15 @@ export interface IDataColumns {
   age: string;
   adress: string;
   cars: string[];
+  education: string;
+  telephone: number;
+  isDriver: string;
+  childrenCount: number;
+  hobby: string;
+  email: string;
+  typeTransport: string;
+  ills: string;
+  internetProvider: string;
+  job: string;
+
 }

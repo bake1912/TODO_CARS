@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { array } from "yup";
+import { ICars, IDataColumns, IUser, IValuesEdit } from "../interfaces/Iprops";
 import { ICars, IDataColumns, IUser } from "../interfaces/Iprops";
 import { useArray } from "./useArray";
 import { v4 as uuidv4 } from "uuid";
@@ -11,6 +12,16 @@ export const useUserOperatings = () => {
     adress: "",
     age: "",
     cars: [{ brand: "" }],
+    education: "",
+    telephone: 0,
+    isDriver: '',
+    childrenCount: 0,
+    hobby: "",
+    email: "",
+    typeTransport: "",
+    ills: "",
+    internetProvider: "",
+    job: "",
   });
 
   const addFields = () => {
@@ -31,43 +42,13 @@ export const useUserOperatings = () => {
 
   const [isModalAddChecked, setisModalAddChecked] = useState(false);
   const [editingUser, setEditingUser] = useState<any>();
-
-  newUserAtributes = (param, e: any) => {
+  newUserAtributes = (param, e) => {
+    const attributeToUpdate = isModalAddChecked ? user : editingUser;
+    const updatedAttribute = { ...attributeToUpdate, [param]: e.target.value };
     if (isModalAddChecked) {
-      if (param == "name") {
-        setUser({
-          ...user,
-          name: e.target.value,
-        });
-      }
-      if (param == "age") {
-        setUser({
-          ...user,
-          age: e.target.value,
-        });
-      }
-      if (param == "adress") {
-        setUser({
-          ...user,
-          adress: e.target.value,
-        });
-      }
+      setUser(updatedAttribute);
     } else {
-      if (param == "name") {
-        setEditingUser((user: string[]) => {
-          return { ...user, name: e.target.value };
-        });
-      }
-      if (param == "age") {
-        setEditingUser((user: string[]) => {
-          return { ...user, age: e.target.value };
-        });
-      }
-      if (param == "adress") {
-        setEditingUser((user: string[]) => {
-          return { ...user, adress: e.target.value };
-        });
-      }
+      setEditingUser(updatedAttribute);
     }
   };
   const myuuid = uuidv4();
@@ -78,6 +59,31 @@ export const useUserOperatings = () => {
     age: user.age,
     adress: user.adress,
     cars: user.cars.map((car) => car.brand + " "),
+    education: user.education,
+    telephone: user.telephone,
+    isDriver: user.isDriver,
+    childrenCount: user.childrenCount,
+    hobby: user.hobby,
+    email: user.email,
+    typeTransport: user.typeTransport,
+    ills: user.ills,
+    internetProvider: user.internetProvider,
+    job: user.job,
+  };
+  const valuesEdit:IValuesEdit = {
+    name: editingUser?.name,
+    age: editingUser?.age,
+    adress: editingUser?.adress,
+    education: editingUser?.education,
+    telephone:editingUser?.telephone,
+    isDriver: editingUser?.isDriver,
+    childrenCount: editingUser?.childrenCount,
+    hobby: editingUser?.hobby,
+    email: editingUser?.email,
+    typeTransport: editingUser?.typeTransport,
+    ills: editingUser?.ills,
+    internetProvider: editingUser?.internetProvider,
+    job: editingUser?.job,
   };
 
   let valuesEdit = {
@@ -85,6 +91,7 @@ export const useUserOperatings = () => {
     age: editingUser?.age,
     adress: editingUser?.adress,
     cars: user.cars,
+
   };
   const setCarsDefault = () => {
     setUser({ ...user, cars: [{ brand: "" }] });
