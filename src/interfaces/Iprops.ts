@@ -15,10 +15,20 @@ export interface ModalProps {
     name: string;
     age: string;
     adress: string;
-    cars:ICars[];
+    cars: ICars[];
+    education: string;
+    telephone: number;
+    isDriver: string;
+    childrenCount: number;
+    hobby: string;
+    email: string;
+    typeTransport: string;
+    ills: string;
+    internetProvider: string;
+    job: string;
   };
   editUser: () => void;
-  handleCarChange:(index:number,event:any)=>void
+  handleCarChange: (index: number, event: any) => void;
 }
 export interface ModalObjectProp {
   userSet: (param: string, e: any) => void;
@@ -31,6 +41,16 @@ export interface ModalObjectProp {
     age: string;
     adress: string;
     cars: ICars[];
+    education: string;
+    telephone: number;
+    isDriver: string;
+    childrenCount: number;
+    hobby: string;
+    email: string;
+    typeTransport: string;
+    ills: string;
+    internetProvider: string;
+    job: string;
   };
   editUser: () => void;
 }
@@ -54,6 +74,16 @@ export interface IUser {
   name: string;
   adress: string;
   age: string;
+  education: string;
+  telephone: number;
+  isDriver: string;
+  childrenCount: number;
+  hobby: string;
+  email: string;
+  typeTransport: string;
+  ills: string;
+  internetProvider: string;
+  job: string;
   cars: ICars[];
 }
 export interface IArray {
@@ -62,6 +92,16 @@ export interface IArray {
   age: string;
   adress: string;
   cars: string[];
+  education: string;
+  telephone: number;
+  isDriver: string;
+  childrenCount: number;
+  hobby: string;
+  email: string;
+  typeTransport: string;
+  ills: string;
+  internetProvider: string;
+  job: string;
 }
 export interface IDataColumns {
   key: string;
@@ -69,4 +109,14 @@ export interface IDataColumns {
   age: string;
   adress: string;
   cars: string[];
+  education: string;
+  telephone: number;
+  isDriver: string;
+  childrenCount: number;
+  hobby: string;
+  email: string;
+  typeTransport: string;
+  ills: string;
+  internetProvider: string;
+  job: string;
 }
