@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { array } from "yup";
-import { ICars, IDataColumns, IUser } from "../interfaces/Iprops";
+import { ICars, IDataColumns, IUser, IValuesEdit } from "../interfaces/Iprops";
 import { useArray } from "./useArray";
 import { v4 as uuidv4 } from "uuid";
 export const useUserOperatings = () => {
@@ -70,11 +70,10 @@ export const useUserOperatings = () => {
     job: user.job,
   };
 
-  const valuesEdit = {
+  const valuesEdit:IValuesEdit = {
     name: editingUser?.name,
     age: editingUser?.age,
     adress: editingUser?.adress,
-    cars: user.cars,
     education: editingUser?.education,
     telephone:editingUser?.telephone,
     isDriver: editingUser?.isDriver,
