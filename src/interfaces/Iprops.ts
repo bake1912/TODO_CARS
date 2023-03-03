@@ -5,28 +5,28 @@ export interface DataType {
   adress: string;
   cars: ICars[];
 }
+export interface IValuesEdit {
+  name: string;
+  age: string;
+  adress: string;
+  education: string;
+  telephone: number;
+  isDriver: string;
+  childrenCount: number;
+  hobby: string;
+  email: string;
+  typeTransport: string;
+  ills: string;
+  internetProvider: string;
+  job: string;
+}
 export interface ModalProps {
   userSet: (param: string, e: any) => void;
   addUser: () => void;
   isModalAddChecked: boolean;
   isModalOpen: boolean;
   modalClose: () => void;
-  valuesEdit: {
-    name: string;
-    age: string;
-    adress: string;
-    cars: ICars[];
-    education: string;
-    telephone: number;
-    isDriver: string;
-    childrenCount: number;
-    hobby: string;
-    email: string;
-    typeTransport: string;
-    ills: string;
-    internetProvider: string;
-    job: string;
-  };
+  valuesEdit: IValuesEdit;
   editUser: () => void;
   handleCarChange: (index: number, event: any) => void;
 }
@@ -70,7 +70,7 @@ export interface TableContentProps {
 }
 
 export interface IUser {
-  key?: string;
+  key: string;
   name: string;
   adress: string;
   age: string;
