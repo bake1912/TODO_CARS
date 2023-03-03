@@ -5,6 +5,7 @@ export interface DataType {
   adress: string;
   cars: ICars[];
 }
+
 export interface IValuesEdit {
   name: string;
   age: string;
@@ -20,6 +21,8 @@ export interface IValuesEdit {
   internetProvider: string;
   job: string;
 }
+
+
 export interface ModalProps {
   userSet: (param: string, e: any) => void;
   addUser: () => void;
@@ -29,6 +32,14 @@ export interface ModalProps {
   valuesEdit: IValuesEdit;
   editUser: () => void;
   handleCarChange: (index: number, event: any) => void;
+  valuesEdit: {
+    name: string;
+    age: string;
+    adress: string;
+    cars:ICars[];
+  };
+  editUser: () => void;
+  handleCarChange:(index:number,event:any)=>void
 }
 export interface ModalObjectProp {
   userSet: (param: string, e: any) => void;
@@ -119,4 +130,5 @@ export interface IDataColumns {
   ills: string;
   internetProvider: string;
   job: string;
+
 }

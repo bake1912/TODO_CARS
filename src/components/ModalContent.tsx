@@ -23,6 +23,7 @@ export const ModalContent = ({
         name: Yup.string().required(),
         age: Yup.number().required(),
         adress: Yup.string().required(),
+
         education: Yup.string().required(),
         telephone: Yup.number().required(),
         isDriver: Yup.string().matches(/^(Yes|No)$/).required(),
@@ -33,6 +34,8 @@ export const ModalContent = ({
         ills: Yup.string().required(),
         internetProvider: Yup.string().required(),
         job: Yup.string().required(),
+
+
       })
     );
   }, [isModalAddChecked]);
@@ -65,6 +68,7 @@ export const ModalContent = ({
     validationSchema,
   });
   const defaultValuesEdit = () => {
+
     formik.values.name = " ";
     formik.values.age = "0";
     formik.values.adress = " ";
@@ -78,12 +82,18 @@ export const ModalContent = ({
     formik.values.telephone = 0;
     formik.values.typeTransport = " ";
     formik.values.internetProvider = " ";
+
+    formik.values.name = "name";
+    formik.values.age = "0";
+    formik.values.adress = "adress";
+
   };
 
   const defaultValuesAdd = () => {
     formik.values.name = "";
     formik.values.age = "";
     formik.values.adress = "";
+
     formik.values.name = "";
     formik.values.age = "0";
     formik.values.adress = "";
@@ -97,6 +107,7 @@ export const ModalContent = ({
     formik.values.telephone = 0;
     formik.values.internetProvider = "";
     formik.values.typeTransport = "";
+
     user.cars = [];
   };
   useEffect(() => {
@@ -144,6 +155,18 @@ export const ModalContent = ({
                   userSet("age", e);
                   formik.handleChange(e);
                 }}
+
+                onChange={
+                  isModalAddChecked
+                    ? (e: ChangeEvent) => {
+                        userSet("age", e);
+                        formik.handleChange(e);
+                      }
+                    : (e: ChangeEvent) => {
+                        userSet("age", e);
+                        formik.handleChange(e);
+                      }
+                }
                 name="age"
                 id="age"
               />
@@ -156,6 +179,19 @@ export const ModalContent = ({
                 onBlur={formik.handleBlur}
                 value={
                   isModalAddChecked ? formik.values.adress : valuesEdit.adress
+
+                }
+                onChange={
+                  isModalAddChecked
+                    ? (e: ChangeEvent) => {
+                        userSet("adress", e);
+                        formik.handleChange(e);
+                      }
+                    : (e: ChangeEvent) => {
+                        userSet("adress", e);
+                        formik.handleChange(e);
+                      }
+
                 }
                 onChange={(e: any) => {
                   userSet("adress", e);

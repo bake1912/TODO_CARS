@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { array } from "yup";
 import { ICars, IDataColumns, IUser, IValuesEdit } from "../interfaces/Iprops";
+import { ICars, IDataColumns, IUser } from "../interfaces/Iprops";
 import { useArray } from "./useArray";
 import { v4 as uuidv4 } from "uuid";
 export const useUserOperatings = () => {
@@ -69,7 +70,6 @@ export const useUserOperatings = () => {
     internetProvider: user.internetProvider,
     job: user.job,
   };
-
   const valuesEdit:IValuesEdit = {
     name: editingUser?.name,
     age: editingUser?.age,
@@ -84,6 +84,14 @@ export const useUserOperatings = () => {
     ills: editingUser?.ills,
     internetProvider: editingUser?.internetProvider,
     job: editingUser?.job,
+  };
+
+  let valuesEdit = {
+    name: editingUser?.name,
+    age: editingUser?.age,
+    adress: editingUser?.adress,
+    cars: user.cars,
+
   };
   const setCarsDefault = () => {
     setUser({ ...user, cars: [{ brand: "" }] });
