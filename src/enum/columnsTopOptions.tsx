@@ -1,0 +1,16 @@
+export enum ColumnsTopOptions {
+  NAME = "name",
+  AGE = "age",
+  ADRESS = "adress",
+  CAR = "cars",
+  EDUCATION = "education",
+  TELEPHONE = "telephone",
+  iSDRIVER = "isDriver",
+  CHILDRENCOUNT = "childrenCount",
+  HOBBY = "hobby",
+  EMAIL = "email",
+  TYPETRANSPORT = "typeTransport",
+  ILLS = "ills",
+  INTERNETPROVIDER = "internetProvider",
+  JOB = "job",
+}
