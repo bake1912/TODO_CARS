@@ -11,13 +11,24 @@ export interface ModalProps {
   isModalAddChecked: boolean;
   isModalOpen: boolean;
   modalClose: () => void;
-  ourUser: {
+  valuesEdit: {
     name: string;
     age: string;
     adress: string;
+    cars: ICars[];
+    education: string;
+    telephone: number;
+    isDriver: string;
+    childrenCount: number;
+    hobby: string;
+    email: string;
+    typeTransport: string;
+    ills: string;
+    internetProvider: string;
+    job: string;
   };
   editUser: () => void;
-  handleFormChange:(index:number,event:any)=>void
+  handleCarChange: (index: number, event: any) => void;
 }
 export interface ModalObjectProp {
   userSet: (param: string, e: any) => void;
@@ -25,11 +36,21 @@ export interface ModalObjectProp {
   isChecked: boolean;
   isModalOpen: boolean;
   modalClose: () => void;
-  ourUser: {
+  valuesEdit: {
     name: string;
     age: string;
     adress: string;
     cars: ICars[];
+    education: string;
+    telephone: number;
+    isDriver: string;
+    childrenCount: number;
+    hobby: string;
+    email: string;
+    typeTransport: string;
+    ills: string;
+    internetProvider: string;
+    job: string;
   };
   editUser: () => void;
 }
@@ -49,10 +70,20 @@ export interface TableContentProps {
 }
 
 export interface IUser {
-  key: string;
+  key?: string;
   name: string;
   adress: string;
   age: string;
+  education: string;
+  telephone: number;
+  isDriver: string;
+  childrenCount: number;
+  hobby: string;
+  email: string;
+  typeTransport: string;
+  ills: string;
+  internetProvider: string;
+  job: string;
   cars: ICars[];
 }
 export interface IArray {
@@ -61,6 +92,16 @@ export interface IArray {
   age: string;
   adress: string;
   cars: string[];
+  education: string;
+  telephone: number;
+  isDriver: string;
+  childrenCount: number;
+  hobby: string;
+  email: string;
+  typeTransport: string;
+  ills: string;
+  internetProvider: string;
+  job: string;
 }
 export interface IDataColumns {
   key: string;
@@ -68,4 +109,14 @@ export interface IDataColumns {
   age: string;
   adress: string;
   cars: string[];
+  education: string;
+  telephone: number;
+  isDriver: string;
+  childrenCount: number;
+  hobby: string;
+  email: string;
+  typeTransport: string;
+  ills: string;
+  internetProvider: string;
+  job: string;
 }
