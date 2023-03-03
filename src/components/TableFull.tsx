@@ -36,17 +36,6 @@ export const TableFull = () => {
     setIsModalOpen(false);
   };
 
-  /*const fetchData = async () => {
-    await axios
-      .get("https://63c5366ef3a73b34785099c0.mockapi.io/api/todoList/users")
-      .then((response) => {
-        setArray(response.data);
-      });
-  };
-  useEffect(() => {
-    fetchData();
-  },[]);
-  */
   return (
     <>
       <TableContent
