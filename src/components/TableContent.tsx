@@ -90,38 +90,6 @@ export const TableContent = ({
       dataIndex: ColumnsTopOptions.JOB,
       key: ColumnsTopOptions.JOB,
     },
-/*
-/*
-/*
-/*
-/*
- {
-      title: ColumnsTopOptions.CAR,
-      dataIndex: ColumnsTopOptions.CAR,
-      key: ColumnsTopOptions.CAR,
-    },
-/*
- {
-      title: ColumnsTopOptions.CAR,
-      dataIndex: ColumnsTopOptions.CAR,
-      key: ColumnsTopOptions.CAR,
-    },
-/*
-/*
-    {
-      title: 'cars',
-      dataIndex: 'cars',
-      render: () => (
-        <>
-           {cars.map((car) => (
-            <span>
-              {car.brand+' '} 
-            </span>
-          ))}
-        </>
-      ),
-    },
-    */
     {
       title: "Action",
       key: "action",
