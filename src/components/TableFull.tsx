@@ -17,16 +17,17 @@ export const TableFull = () => {
     user,
     setUser,
     editingUser,
-     setisModalAddChecked,
+    setisModalAddChecked,
     newUserAtributes,
-    
+    valuesEdit,
     dataColumns,
-    handleFormChange,
+    handleCarChange,
+     setCarsDefault,
   } = useUserOperatings();
 
   const addUser = () => {
     setArray([...array, dataColumns]);
-    setUser({ ...user, name: "", age: "", adress: "", cars: [{ brand: "" }] });
+    setCarsDefault();
   };
   const editUser = () => {
     EditUserCheck(setArray, editingUser);
@@ -34,27 +35,7 @@ export const TableFull = () => {
   const modalClose = () => {
     setIsModalOpen(false);
   };
-  useEffect(()=>{
-    if(isModalAddChecked){
-      setUser({
-        key:myuuid,
-        name: user.name,
-        age: user.age,
-        adress: user.adress,
-        cars: user.cars,
-      })
 
-    }
-    else{
-      setUser({
-        name: editingUser?.name,
-        age: editingUser?.age,
-        adress: editingUser?.adress,
-        cars: user.cars,
-      })
-    }
-  },[isModalOpen])
-  
   /*const fetchData = async () => {
     await axios
       .get("https://63c5366ef3a73b34785099c0.mockapi.io/api/todoList/users")
@@ -88,9 +69,9 @@ export const TableFull = () => {
         Add
       </Button>
       <ModalContent
-        handleFormChange={handleFormChange}
+        handleCarChange={handleCarChange}
         userSet={newUserAtributes}
-        ourUser={user}
+        valuesEdit={valuesEdit}
         editUser={editUser}
         addUser={addUser}
         isModalAddChecked={isModalAddChecked}
