@@ -86,13 +86,6 @@ export const useUserOperatings = () => {
     job: editingUser?.job,
   };
 
-  let valuesEdit = {
-    name: editingUser?.name,
-    age: editingUser?.age,
-    adress: editingUser?.adress,
-    cars: user.cars,
-
-  };
   const setCarsDefault = () => {
     setUser({ ...user, cars: [{ brand: "" }] });
   };
