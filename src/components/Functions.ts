@@ -30,35 +30,9 @@ export const useDeleteUser = (record: any, setArray: (e: any) => void) => {
 
 export const defaultValuesAdd = (formik: FormikValues, user: IUser) => {
   formik.values.name = "";
-  formik.values.age = "";
-  formik.values.adress = "";
-  formik.values.name = "";
-  formik.values.age = undefined;
-  formik.values.adress = "";
-  formik.values.education = "";
-  formik.values.isDriver = "";
-  formik.values.childrenCount = undefined;
-  formik.values.hobby = "";
-  formik.values.email = "";
-  formik.values.ills = "";
-  formik.values.job = "";
-  formik.values.telephone = undefined;
-  formik.values.internetProvider = "";
-  formik.values.typeTransport = "";
+
   user.cars = [];
 };
 export const defaultValuesEdit = (formik: FormikValues) => {
   formik.values.name = " ";
-  formik.values.age = 3;
-  formik.values.adress = " ";
-  formik.values.education = " ";
-  formik.values.isDriver = "Yes";
-  formik.values.childrenCount = 2;
-  formik.values.hobby = " ";
-  formik.values.email = "123456@gmail.com";
-  formik.values.ills = " ";
-  formik.values.job = " ";
-  formik.values.telephone = 380982746426;
-  formik.values.typeTransport = " ";
-  formik.values.internetProvider = " ";
 };

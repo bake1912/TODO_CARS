@@ -1,18 +1,7 @@
 
 export interface IValuesEdit {
   name: string;
-  age: string;
-  adress: string;
-  education: string;
-  telephone: number;
-  isDriver: string;
-  childrenCount: number;
-  hobby: string;
-  email: string;
-  typeTransport: string;
-  ills: string;
-  internetProvider: string;
-  job: string;
+      cars:ICars[]
 }
 export interface ModalProps {
   userSet: (param: string, e: any) => void;
@@ -43,51 +32,19 @@ export interface TableContentProps {
 export interface IUser {
   key: string;
   name: string;
-  adress: string;
-  age: string;
-  education: string;
-  telephone: number | undefined;
-  isDriver: string;
-  childrenCount: number | undefined;
-  hobby: string;
-  email: string;
-  typeTransport: string;
-  ills: string;
-  internetProvider: string;
-  job: string;
+
   cars: ICars[];
 }
 export interface IArray {
   key: string;
   name: string;
-  age: string;
-  adress: string;
   cars: string[];
-  education: string;
-  telephone: number | undefined;
-  isDriver: string;
-  childrenCount: number | undefined;
-  hobby: string;
-  email: string;
-  typeTransport: string;
-  ills: string;
-  internetProvider: string;
-  job: string;
+ 
 }
 export interface IDataColumns {
   key: string;
   name: string;
-  age: string;
-  adress: string;
+
   cars: string[];
-  education: string;
-  telephone: number | undefined;
-  isDriver: string;
-  childrenCount: number | undefined;
-  hobby: string;
-  email: string;
-  typeTransport: string;
-  ills: string;
-  internetProvider: string;
-  job: string;
+ 
 }

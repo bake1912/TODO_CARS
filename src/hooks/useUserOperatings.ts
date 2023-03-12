@@ -5,23 +5,15 @@ import { v4 as uuidv4 } from "uuid";
 export const useUserOperatings = () => {
   const [isModalAddChecked, setisModalAddChecked] = useState(false);
   const myuuid = uuidv4();
-  const [editingUser, setEditingUser] = useState<any>();
+  const [editingUser, setEditingUser] = useState({
+    key: "",
+    name: "",
+    cars: [{ brand: "" }],
+  });
   const [user, setUser] = useState<IUser>({
     key: "",
     name: "",
-    adress: "",
-    age: "",
     cars: [{ brand: "" }],
-    education: "",
-    telephone: undefined,
-    isDriver: "",
-    childrenCount: undefined,
-    hobby: "",
-    email: "",
-    typeTransport: "",
-    ills: "",
-    internetProvider: "",
-    job: "",
   });
 
   const addFields = () => {
@@ -53,35 +45,12 @@ export const useUserOperatings = () => {
   const dataColumns: IDataColumns = {
     key: myuuid,
     name: user.name,
-    age: user.age,
-    adress: user.adress,
     cars: user.cars.map((car) => car.brand + " "),
-    education: user.education,
-    telephone: user.telephone,
-    isDriver: user.isDriver,
-    childrenCount: user.childrenCount,
-    hobby: user.hobby,
-    email: user.email,
-    typeTransport: user.typeTransport,
-    ills: user.ills,
-    internetProvider: user.internetProvider,
-    job: user.job,
   };
 
   const valuesEdit: IValuesEdit = {
-    name: editingUser?.name,
-    age: editingUser?.age,
-    adress: editingUser?.adress,
-    education: editingUser?.education,
-    telephone: editingUser?.telephone,
-    isDriver: editingUser?.isDriver,
-    childrenCount: editingUser?.childrenCount,
-    hobby: editingUser?.hobby,
-    email: editingUser?.email,
-    typeTransport: editingUser?.typeTransport,
-    ills: editingUser?.ills,
-    internetProvider: editingUser?.internetProvider,
-    job: editingUser?.job,
+    name: editingUser.name,
+    cars: editingUser.cars,
   };
   const setCarsDefault = () => {
     setUser({ ...user, cars: [{ brand: "" }] });
