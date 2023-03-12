@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 export const useUserOperatings = () => {
   const [isModalAddChecked, setisModalAddChecked] = useState(false);
   const myuuid = uuidv4();
-  const [editingUser, setEditingUser] = useState({
+  const [editingUser, setEditingUser] = useState<IUser>({
     key: "",
     name: "",
     cars: [{ brand: "" }],
